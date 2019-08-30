@@ -1,0 +1,7 @@
+{{#each @data as |row|}}
+  <ul>
+    <BoardRow @row={{row}} />
+  </ul>
+{{/each}}
+
+{{yield}}

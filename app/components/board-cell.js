@@ -1,9 +1,11 @@
 import Component from '@ember/component';
+import { inject } from '@ember/service';
 
 export default Component.extend({
+  logic: inject(),
   value: '',
-  isWinning: false,
-  classNameBindings: ['isWinning'],
+  winner: false,
+  classNameBindings: ['winner'],
   classNames: [
     'board-cell',
     'mdl-cell',
@@ -14,11 +16,9 @@ export default Component.extend({
     'no-padding'
   ],
   click() {
-    const value = 'X'
-    this.set('value', value)
-    this.store(this.index, value)
-  },
-  init() {
-    this._super(...arguments)
+    if (this.value === ' ' && !this.winner) {
+      this.set('value', this.logic.turn)
+      this.store(this.index)
+    }
   },
 });

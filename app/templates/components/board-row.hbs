@@ -1,6 +1,7 @@
 {{#each @row as |value index|}}
   <BoardCell @value={{value}}
              @index={{index}}
+             @winner={{@winner}}
              @store={{action store this.index}} as |result|>
     {{ result }}
   </BoardCell>

@@ -1,10 +1,12 @@
 import Controller from '@ember/controller';
+import { inject } from '@ember/service';
 
 export default Controller.extend({
+  logic: inject(),
+  hasWinner: false,
   actions: {
-    changeBoardState(x, y, value) {
-      this.model.boardstate[x][y] = value
-      console.log(this.model.boardstate.toString())
+    changeBoardState() {
+      console.log(this.model.boardstate)
       // this.model.save()
     }
   }

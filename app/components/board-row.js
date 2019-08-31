@@ -8,14 +8,7 @@ export default Component.extend({
     'justify-content-center',
     'no-wrap',
     'no-margin',
-    'no-padding'
+    'no-padding',
+    'w-100'
   ],
-  init() {
-    this._super(...arguments)
-  },
-  actions: {
-    clickRow(x, y, value) {
-      this.boardStore(x, y, value)
-    }
-  }
 });

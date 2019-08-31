@@ -1,5 +1,9 @@
-{{#each @row as |value|}}
-  <BoardCell @cell={{value}} />
+{{#each @row as |value index|}}
+  <BoardCell @value={{value}}
+             @index={{index}}
+             @store={{action store this.index}} as |result|>
+    {{ result }}
+  </BoardCell>
 {{/each}}
 
 {{yield}}

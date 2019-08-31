@@ -1,7 +1,7 @@
-{{#each @data as |row|}}
-  <ul>
-    <BoardRow @row={{row}} />
-  </ul>
+{{#each @data as |row index|}}
+  <BoardRow @row={{row}}
+            @index={{index}}
+            @store={{action store}}/>
 {{/each}}
 
 {{yield}}

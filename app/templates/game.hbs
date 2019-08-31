@@ -1,3 +1,4 @@
-<h2>the game</h2>
-
-<Board @data={{ this.model.boardstate }} />
+<div class="mdl-layout-spacer"
+     style="height:10%"></div>
+<Board @data={{ model.boardstate }}
+       @store={{action "changeBoardState"}}/>

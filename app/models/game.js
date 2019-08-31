@@ -2,5 +2,5 @@ import DS from 'ember-data';
 const { Model } = DS;
 
 export default Model.extend({
-  boardstate: DS.attr()
+  boardstate: DS.attr('board')
 });

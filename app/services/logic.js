@@ -1,9 +1,9 @@
 import Service from '@ember/service';
 
 const zip = (...arrays) => { 
-  let iters = arrays.map((array) => array[Symbol.iterator]()) 
+  const columns = [] 
+  const iters = arrays.map((array) => array[Symbol.iterator]()) 
   let items = iters.map((iter) => iter.next()) 
-  let columns = [] 
   while (!items.some((item) => item.done)) { 
     columns.push(items.map((item) => item.value)) 
     items = iters.map((iter) => iter.next()) 
@@ -53,7 +53,6 @@ export default Service.extend({
   },
 
   diagonals() {
-    // Luckely, the board is 3 by 3
     return [
       this.board.boardstate.map((__, i, board) => board[i][i]),
       this.board.boardstate.map((__, i, board) => board[i][2-i])
@@ -62,12 +61,10 @@ export default Service.extend({
 
   calcWinner() {
     const equal = /XXX|OOO/
-    // [].some and [].any both work.
     const winner = this.board.boardstate.some((row) => equal.test(row.mapBy('value').join('')))
       || this.columns().some((col) => equal.test(col.mapBy('value').join('')))
       || this.diagonals().some((dia) => equal.test(dia.mapBy('value').join('')))
     this.set('hasWinner', winner)
     return winner
   }
-
 });

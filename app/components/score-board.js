@@ -10,8 +10,5 @@ export default Component.extend({
     'mdl-cell--5-col'
   ],
   playerX: alias('logic.playerX'),
-  playerO: alias('logic.playerO'),
-  actions: {
-    doNothing() { },
-  }
+  playerO: alias('logic.playerO')
 });

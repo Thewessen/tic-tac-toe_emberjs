@@ -1,14 +1,18 @@
-<div class="mdl-grid mdl-cell fs-21 {{unless this.playerX 'w-100'}}">
-  Player <span class="shadows-into-light">X</span>:
+<div class="mdl-grid w-100">
+  <div class="mdl-grid mdl-cell fs-21 {{unless this.playerX 'w-100'}}">
+    Player <span class="shadows-into-light">X</span>:
+  </div>
+  {{#if this.playerX}}
+    <DisplayName @model={{this.playerX}}
+                 @selected={{true}}/>
+  {{/if}}
 </div>
-{{#if this.playerX}}
-  <DisplayName @model={{this.playerX}}
-               @selected={{true}}/>
-{{/if}}
-<div class="mdl-grid mdl-cell fs-21 {{unless this.playerO 'w-100'}}">
-    Player <span class="shadows-into-light p-3">O</span>:
+<div class="mdl-grid w-100">
+  <div class="mdl-grid mdl-cell fs-21 {{unless this.playerO 'w-100'}}">
+      Player <span class="shadows-into-light p-3">O</span>:
+  </div>
+  {{#if this.playerO}}
+    <DisplayName @model={{this.playerO}}
+                 @selected={{true}}/>
+  {{/if}}
 </div>
-{{#if this.playerO}}
-  <DisplayName @model={{this.playerO}}
-               @selected={{true}}/>
-{{/if}}

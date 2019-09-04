@@ -7,6 +7,9 @@ I'm not familiar with. Pretty exciting and a good learning oppertunity!
 The repository for the backend can be found here: 
 [Ruby on Rails (tic-tac-toe backend)](https://github.com/Thewessen/tic-tac-toe_ruby_backend)
 
+If you want to know more about the learning process of creating this app, I'm
+happy to refer too the [wiki-page](https://github.com/Thewessen/tic-tac-toe_ruby_backend/wiki)
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.

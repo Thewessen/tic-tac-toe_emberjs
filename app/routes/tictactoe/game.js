@@ -8,9 +8,9 @@ export default Route.extend({
   },
   afterModel(model) {
     if (!model) {
-      this.replaceWith('index')
+      this.replaceWith('tictactoe')
     }
-    this.logic.set('board', model)
+    this.set('logic.board', model)
     if (model.nicknames.length < 2) {
       this.replaceWith('/tictactoe/nicknames')
     }

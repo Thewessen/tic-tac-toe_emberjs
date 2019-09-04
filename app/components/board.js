@@ -5,6 +5,7 @@ import { alias } from '@ember/object/computed';
 export default Component.extend({
   logic: service(),
   hasWinner: alias('logic.hasWinner'),
+  isDone: alias('logic.gameDone'),
   classNames: [
     'mdl-grid--no-spacing',
     'line-height-1'

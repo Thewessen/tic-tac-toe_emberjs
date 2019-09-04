@@ -17,6 +17,7 @@ export default Service.extend({
   playerO: null,
   board: null,
   hasWinner: false,
+  gameDone: false,
 
   init() {
     this._super(...arguments)
@@ -29,6 +30,7 @@ export default Service.extend({
     this.set('playerX', null)
     this.set('board', null)
     this.set('hasWinner', false)
+    this.set('gameDone', false)
   },
 
   swapTurn() {
@@ -41,8 +43,7 @@ export default Service.extend({
 
   setDraw(x, y) {
     this.set('board.boardstate[x][y]', this.turn)
-    this.calcWinner()
-    if(!this.hasWinner) {
+    if(!this.calcWinner() && !this.isDone()) {
       this.swapTurn()
     }
     return this.board.boardstate
@@ -66,5 +67,13 @@ export default Service.extend({
       || this.diagonals().some((dia) => equal.test(dia.mapBy('value').join('')))
     this.set('hasWinner', winner)
     return winner
+  },
+  
+  isDone() {
+    const done = this.board.boardstate.map((row) => row.mapBy('value').join(''))
+      .join('')
+      .replace(' ', '').length === 9
+    this.set('gameDone', done)
+    return done
   }
 });

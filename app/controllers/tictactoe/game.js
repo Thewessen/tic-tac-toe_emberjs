@@ -1,10 +1,12 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { alias } from '@ember/object/computed';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   logic: service(),
-  hasWinner: alias('logic.hasWinner'),
+  isDone: computed('logic.{gameDone,hasWinner}', function() {
+    return this.logic.gameDone || this.logic.hasWinner
+  }),
   actions: {
     changeBoardState() {
       this.model.save()

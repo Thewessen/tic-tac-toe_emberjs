@@ -1,7 +1,6 @@
 {{#each @row as |mark index|}}
   <BoardCell @mark={{mark}}
              @index={{index}}
-             @winner={{@winner}}
              @store={{action store this.index}} as |result|>
     {{ result }}
   </BoardCell>

@@ -10,6 +10,5 @@
 {{#each @data as |row index|}}
   <BoardRow @row={{row}}
             @index={{index}}
-            @winner={{this.hasWinner}}
             @store={{action "checkWinner"}}/>
 {{/each}}

@@ -1,15 +1,16 @@
 import Component from '@ember/component';
-import { inject } from '@ember/service';
+import { inject as service } from '@ember/service';
+import { alias } from '@ember/object/computed';
 
 export default Component.extend({
-  logic: inject(),
-  winner: false,
+  logic: service(),
+  winner: alias('logic.hasWinner'),
   classNameBindings: ['winner'],
   classNames: [
     'board-cell',
     'mdl-cell',
     'mdl-cell--4-col',
-    'mdl-typography--text-center',
+    'text-center',
     'border',
     'no-margin',
     'no-padding'

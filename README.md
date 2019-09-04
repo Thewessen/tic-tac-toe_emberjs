@@ -1,7 +1,11 @@
-# tic-tac-toe
+# tic-tac-toe (front-end)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+For a potential new job, they asked me to make a simple tic-tac-toe game using
+Emberjs in the frontend and Ruby on Rails in the backend. Both frameworks which
+I'm not familiar with. Pretty exciting and a good learning oppertunity!
+
+The repository for the backend can be found here: 
+[Ruby on Rails (tic-tac-toe backend)](https://github.com/Thewessen/tic-tac-toe_ruby_backend)
 
 ## Prerequisites
 
@@ -10,7 +14,6 @@ You will need the following things properly installed on your computer.
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with npm)
 * [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
@@ -21,32 +24,8 @@ You will need the following things properly installed on your computer.
 ## Running / Development
 
 * `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-_soon follows..._
+* Make sure the backend is running! (see [backend](https://github.com/Thewessen/tic-tac-toe_ruby_backend) for further reading)
+* Visit the app at [http://localhost:4200](http://localhost:4200).
 
 ## Further Reading / Useful Links
 

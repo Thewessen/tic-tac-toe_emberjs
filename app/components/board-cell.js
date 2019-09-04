@@ -3,7 +3,6 @@ import { inject } from '@ember/service';
 
 export default Component.extend({
   logic: inject(),
-  value: '',
   winner: false,
   classNameBindings: ['winner'],
   classNames: [
@@ -15,9 +14,13 @@ export default Component.extend({
     'no-margin',
     'no-padding'
   ],
+  init() {
+    this._super(...arguments)
+    window.componentHandler.upgradeDom()
+  },
   click() {
-    if (this.value === ' ' && !this.winner) {
-      this.set('value', this.logic.turn)
+    if (this.mark.value === ' ' && !this.winner) {
+      this.set('mark.value', this.logic.turn)
       this.store(this.index)
     }
   },

@@ -13,7 +13,10 @@ const zip = (...arrays) => {
 
 export default Service.extend({
   turn: null,
-  boardstate: null,
+  playerX: null,
+  playerO: null,
+  board: null,
+  hasWinner: false,
 
   init() {
     this._super(...arguments)
@@ -22,6 +25,10 @@ export default Service.extend({
         ? 'X'
         : 'O'
     )
+    this.set('playerO', null)
+    this.set('playerX', null)
+    this.set('board', null)
+    this.set('hasWinner', false)
   },
 
   swapTurn() {
@@ -32,33 +39,35 @@ export default Service.extend({
     )
   },
 
-  setBoardstate(boardstate) {
-    return this.set('boardstate', boardstate)
-  },
-
   setDraw(x, y) {
-    this.boardstate[x][y] = this.turn
-    this.swapTurn()
-    return this.boardstate
+    this.set('board.boardstate[x][y]', this.turn)
+    this.calcWinner()
+    if(!this.hasWinner) {
+      this.swapTurn()
+    }
+    return this.board.boardstate
   },
 
   columns() {
-    return zip(...this.boardstate)
+    return zip(...this.board.boardstate)
   },
 
   diagonals() {
     // Luckely, the board is 3 by 3
     return [
-      this.boardstate.map((__, i, board) => board[i][i]),
-      this.boardstate.map((__, i, board) => board[i][2-i])
+      this.board.boardstate.map((__, i, board) => board[i][i]),
+      this.board.boardstate.map((__, i, board) => board[i][2-i])
     ]
   },
 
-  hasWinner() {
+  calcWinner() {
     const equal = /XXX|OOO/
-    return this.boardstate.some((row) => equal.test(row.join('')))
-      || this.columns().some((col) => equal.test(col.join('')))
-      || this.diagonals().some((dia) => equal.test(dia.join('')))
+    // [].some and [].any both work.
+    const winner = this.board.boardstate.some((row) => equal.test(row.mapBy('value').join('')))
+      || this.columns().some((col) => equal.test(col.mapBy('value').join('')))
+      || this.diagonals().some((dia) => equal.test(dia.mapBy('value').join('')))
+    this.set('hasWinner', winner)
+    return winner
   }
 
 });

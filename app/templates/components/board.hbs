@@ -1,5 +1,11 @@
 {{#if this.hasWinner}}
-<h1>WINNER! Player '{{ this.logic.turn }}'</h1>
+  <h2 class="text-center">
+      Winner player <span class="shadows-into-light">{{ this.logic.turn }}</span>
+  </h2>
+{{else}}
+  <h2 class="text-center">
+      Turn player <span class="shadows-into-light">{{ this.logic.turn }}</span>
+  </h2>
 {{/if}}
 {{#each @data as |row index|}}
   <BoardRow @row={{row}}
@@ -7,5 +13,3 @@
             @winner={{this.hasWinner}}
             @store={{action "checkWinner"}}/>
 {{/each}}
-
-{{yield}}

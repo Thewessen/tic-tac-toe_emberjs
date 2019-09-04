@@ -1,0 +1,10 @@
+<Board @data={{ this.model.boardstate }}
+       @store={{action "changeBoardState"}}/>
+
+{{#if this.hasWinner}}
+  <div class="mdl-grid justify-content-center m-10">
+    <button {{action "newGame"}} class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+      New Game
+    </button>
+  </div>
+{{/if}}

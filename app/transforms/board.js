@@ -6,13 +6,15 @@ export default DS.Transform.extend({
     return A(string.split(',')
       .reduce((rows, __, i, cells) =>
         !(i % 3)
-          ? [...rows, cells.slice(i, i + 3)]
+        ? [...rows, A(cells.slice(i, i + 3)
+          .map((mark) => ({ value: mark }))
+        )]
           : rows
       , []))
   },
 
   serialize(ember_array) {
     return ember_array.toArray()
-      .map((row) => row.join(',')).join(',')
+      .map((row) => row.map((e) => e.value).join(',')).join(',')
   }
 });

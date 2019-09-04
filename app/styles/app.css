@@ -1,3 +1,11 @@
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+main {
+  display: flex !important;
+  justify-content: center !important;
+}
 .board-cell {
   font-family: 'Shadows Into Light', cursive;
   cursor: pointer;
@@ -6,6 +14,10 @@
   width: 150px;
   min-width: 150px;
   min-height: 150px;
+}
+
+.display-name {
+  cursor: pointer;
 }
 
 .position-relative {
@@ -43,6 +55,20 @@
 }
 
 .winner {
-  background-color: green;
   cursor: default;
+}
+
+.text-center {
+  text-align: center !important;
+}
+.shadows-into-light {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.2em;
+  padding-left: 0.2em;
+}
+.fs-21 {
+  font-size: 21px !important;
+}
+.m-10 {
+  margin: 10% !important;
 }

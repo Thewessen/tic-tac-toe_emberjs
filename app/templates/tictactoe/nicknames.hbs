@@ -1,0 +1,6 @@
+{{#each this.model as |nickname|}}
+  <DisplayName @model={{nickname}}
+               @select={{action "selectName"}}/>
+{{/each}}
+
+{{outlet}}

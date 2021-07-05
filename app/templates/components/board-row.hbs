@@ -1,0 +1,7 @@
+{{#each @row as |mark index|}}
+  <BoardCell @mark={{mark}}
+             @index={{index}}
+             @store={{action store this.index}} as |result|>
+    {{ result }}
+  </BoardCell>
+{{/each}}
